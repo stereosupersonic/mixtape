@@ -44,7 +44,7 @@ gem 'bootstrap-sass'
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'haml-rails'
 gem 'high_voltage'
-gem 'mysql2'
+
 gem 'thin'
 
 group :development do
