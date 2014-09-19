@@ -3,4 +3,14 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+desc "start the local server"
+task :start_server do
+  port = 3000
+
+  cmd = "bundle exec thin start -p #{port}"
+  puts cmd
+  system "#{cmd}"
+  puts "http://localhost:#{port}"
+end
+
 Rails.application.load_tasks

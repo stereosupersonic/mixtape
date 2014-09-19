@@ -1,0 +1,21 @@
+= form_for @song, :html => { :class => "form-horizontal" } do |f|
+  -if @song.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4= "#{pluralize(@song.errors.count, "error")} prohibited this song from being saved:"
+
+      %ul
+        - @song.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :artist, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :artist, :class => 'form-control'
+  .form-group
+    = f.label :title, :class => 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, :class => 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => 'btn btn-primary'

@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_song_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Song
+  %h1 Listing songs
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Artist
+        %th Title
+        %th
+        %th
+        %th
+
+    %tbody
+      - @songs.each do |song|
+        %tr
+          %td= song.artist
+          %td= song.title
+          %td= link_to 'Show', song
+          %td= link_to 'Edit', edit_song_path(song)
+          %td= link_to 'Destroy', song, :data => { confirm: 'Are you sure?' }, :method => :delete
